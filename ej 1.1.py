@@ -23,7 +23,7 @@ class Calculadora:
 
         self.expresion = ""
         buttons = [
-            ("Ce",1,0), ("AC",1,1), ("raíz",1,2), ("^",1,3),
+            ("Ce",1,0), ("AC",1,1), ("√",1,2), ("^",1,3),
             ("7",2,0), ("8",2,1), ("9",2,2), ("/",2,3),
             ("4",3,0), ("5",3,1), ("6",3,2), ("*",3,3),
             ("1",4,0), ("2",4,1), ("3",4,2), ("-",4,3),
@@ -53,6 +53,15 @@ class Calculadora:
                                activebackground= "pink1",
                                activeforeground="white")
                 AC.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=20, sticky="nsew")
+            
+            elif text == "√":
+                sqrt = tk.Button(root,
+                                 text= text,
+                                 command=lambda: self.add("**0.5"), 
+                                 bg = "pink",
+                                 activebackground= "pink1",
+                                 activeforeground="white")
+                sqrt.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=20, sticky="nsew")
                 
             else:
                 keys= tk.Button(root,
