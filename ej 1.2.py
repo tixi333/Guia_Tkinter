@@ -30,6 +30,7 @@ class Alineacion:
     def ubicar_iconos(self):
         self.canvas.create_image(300, 750, image=self.imgs[0])
 
+
         self.canvas.create_image(100, 640, image=self.imgs[1])
         self.canvas.create_image(200, 640, image=self.imgs[2])
         self.canvas.create_image(400, 640, image=self.imgs[3])
@@ -43,7 +44,7 @@ class Alineacion:
         self.canvas.create_image(100, 200, image=self.imgs[8])
         self.canvas.create_image(300, 200, image=self.imgs[9])
         self.canvas.create_image(500, 200, image=self.imgs[10])
-
+        
 root = tk.Tk()
 a = Alineacion(root)
 root.mainloop()

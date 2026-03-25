@@ -35,7 +35,7 @@ class Calculadora:
             if text == "Ce":
                 Ce= tk.Button(root,
                           text= text,
-                          command= self.delete_all,
+                          command= self.delete,
                           bg = "pink",
                           activebackground= "pink1",
                           activeforeground="white")
@@ -48,7 +48,7 @@ class Calculadora:
             elif text == "AC":
                 AC = tk.Button(root,
                                text= text,
-                               command= self.delete, 
+                               command= self.delete_all, 
                                bg = "pink",
                                activebackground= "pink1",
                                activeforeground="white")
@@ -62,6 +62,16 @@ class Calculadora:
                                  activebackground= "pink1",
                                  activeforeground="white")
                 sqrt.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=20, sticky="nsew")
+            
+            elif text == "^":
+                pow_ = tk.Button(root,
+                                 text= text,
+                                 command=lambda: self.add("**"), 
+                                 bg = "pink",
+                                 activebackground= "pink1",
+                                 activeforeground="white")
+                
+                pow_.grid(row=row,column=col, padx=5, pady=5, ipadx=20, ipady=20, sticky="nsew" )
                 
             else:
                 keys= tk.Button(root,
