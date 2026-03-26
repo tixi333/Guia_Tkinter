@@ -1,49 +1,38 @@
+from tkinter import * 
 import tkinter as tk
-from tkinter import ttk
 
 class SistemaGestion:
     def __init__(self,root):
         self.root = root
-        self.title = "Sistema de Gestion de Inventario"
-        self.root.state('zoomed')
+        self.root.title("Sistema de Gestion de Inventario")
+        self.root.geometry("600x500")
+        root.configure(bg='snow')
 
-        panelIzq = ttk.LabelFrame(self.root, text="Panel de Operaciones", padding=(20))
-        panelIzq.grid(row=0, column=0, padx=20, pady=10, sticky="nw")
-
-        #panelIzq = ttk.LabelFrame(self.root, text="Panel de Operaciones")
-        #panelIzq.pack(padx=0, pady=10)
-        
-        # ID LABEL - ENTRY
-
-        self.id_label = tk.Label(panelIzq, text="Name:")
-        self.id_label.grid(row =0, column=0, padx= 5, pady=5, sticky= "e")
-
-        self.id_entry= tk.Entry(panelIzq)
-        self.id_entry.grid(row =0, column=2, padx= 5, pady=5, sticky= "w")
-
-        # DESC LABEL -ENTRY
-
-        self.desc_label = tk.Label(panelIzq, text= "Descripción:")
-        self.desc_label.grid(row = 1, column = 0, padx = 5, pady = 5, sticky = "e")
-
-        self.desc_entry = tk.Entry(panelIzq)
-        self.desc_entry.grid(row = 1, column= 2, padx= 5, pady= 5, sticky= "w")
-
-        #STOCK LABEL-ENTRY
-
-        self.stock_label = tk.Label(panelIzq, text= "Stock:")
-        self.stock_label.grid(row= 3, column=0, padx= 5, pady=5, sticky="e")
-
-        self.stock_entry = tk.Entry(panelIzq)
-        self.stock_entry.grid(row=3, column=2, padx= 5, pady= 5, sticky="w")
-        
-        #Treeview
-
-        
-        self.root.columnconfigure(0, weight=1)
+        for e in range(2):
+            self.root.columnconfigure({e}, weight= 1)
         self.root.rowconfigure(0, weight=1)
 
-        panelIzq.columnconfigure(1, weight=1)
+        self.panelIzq = tk.LabelFrame(self.root, text="Panel de Operaciones",bg= "misty rose")
+        self.panelIzq.grid(row=0, column= 0, padx=20, pady=20, sticky="nsew")
+
+        self.panelentry = tk.LabelFrame()
+
+        panelDer = tk.LabelFrame(self.root, text="Inventario", bg = "misty rose")
+        panelDer.grid(row=0, column=1, padx=20, pady=20, sticky="nsew" )
+
+        for e in range(5):
+            self.panelIzq.rowconfigure({e},weight=1)
+
+        for e in range(5):
+            self.panelIzq.columnconfigure({e},weight=1)
+        
+
+        id_label = tk.Label(self.panelIzq,text= "Nombre:", bg= "misty rose")
+        id_label.grid(row = 0, column=0,padx=1,pady=1, sticky="ew")
+
+        id_entry = tk.Entry(self.panelIzq, justify="left")
+        id_entry.grid(row=0, column=2)
+        
 
 
     def guardar(self):
@@ -59,20 +48,4 @@ class SistemaGestion:
 
 root = tk.Tk()
 r = SistemaGestion(root)
-root.mainloop()
-
-
-columnas = ('ID', 'Nombre', 'Edad')
-tree = ttk.Treeview(root, columns=columnas, show='headings')
-
-tree.heading('ID', text='ID')
-tree.heading('Nombre', text='Nombre')
-tree.heading('Edad', text='Edad')
-
-tree.insert('', tk.END, values=('1', 'Ana', '25'))
-tree.insert('', tk.END, values=('2', 'Luis', '30'))
-tree.insert('', tk.END, values=('3', 'Pedro', '22'))
-
-tree.pack(expand=True, fill='both')
-
 root.mainloop()

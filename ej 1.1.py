@@ -8,7 +8,7 @@ class Calculadora:
         self.root.title("Calculadora")
         self.root.resizable(False,False)
         self.root.configure(bg="pink")
-   
+    
         self.screen = Entry(
                 root,
                 width=20,
@@ -34,11 +34,11 @@ class Calculadora:
             
             if text == "Ce":
                 Ce= tk.Button(root,
-                          text= text,
-                          command= self.delete,
-                          bg = "pink",
-                          activebackground= "pink1",
-                          activeforeground="white")
+                            text= text,
+                            command= self.delete,
+                            bg = "pink",
+                            activebackground= "pink1",
+                            activeforeground="white")
                 Ce.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=20, sticky="nsew")
                 
             elif text == "=":
@@ -47,39 +47,39 @@ class Calculadora:
                 
             elif text == "AC":
                 AC = tk.Button(root,
-                               text= text,
-                               command= self.delete_all, 
-                               bg = "pink",
-                               activebackground= "pink1",
-                               activeforeground="white")
+                            text= text,
+                            command= self.delete_all,
+                            bg = "pink",
+                            activebackground= "pink1",
+                            activeforeground="white")
                 AC.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=20, sticky="nsew")
             
             elif text == "√":
                 sqrt = tk.Button(root,
-                                 text= text,
-                                 command=lambda: self.add("**0.5"), 
-                                 bg = "pink",
-                                 activebackground= "pink1",
-                                 activeforeground="white")
+                                text= text,
+                                command=lambda: self.add("**0.5"), 
+                                bg = "pink",
+                                activebackground= "pink1",
+                                activeforeground="white")
                 sqrt.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=20, sticky="nsew")
             
             elif text == "^":
                 pow_ = tk.Button(root,
-                                 text= text,
-                                 command=lambda: self.add("**"), 
-                                 bg = "pink",
-                                 activebackground= "pink1",
-                                 activeforeground="white")
+                                text= text,
+                                command=lambda: self.add("**"), 
+                                bg = "pink",
+                                activebackground= "pink1",
+                                activeforeground="white")
                 
                 pow_.grid(row=row,column=col, padx=5, pady=5, ipadx=20, ipady=20, sticky="nsew" )
                 
             else:
                 keys= tk.Button(root,
-                          text= text,
-                          command=lambda t=text: self.add(t),
-                          bg = "pink", 
-                          activebackground= "pink1",
-                          activeforeground="white")
+                        text= text,
+                        command=lambda t=text: self.add(t),
+                        bg = "pink", 
+                        activebackground= "pink1",
+                        activeforeground="white")
                 keys.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=20, sticky="nsew")
         
         for i in range(5):
